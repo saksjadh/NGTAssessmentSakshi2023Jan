@@ -15,19 +15,22 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.app.pages.Login;
+
 public class Scenario4 {
 	
 	WebDriver driver=null;
 	
 	@BeforeMethod(alwaysRun=true)
 	public void setup() {
-		String rootFolder = System.getProperty("user.dir");
+		String rootFolder = System.getProperty("user.dir"); 
 		System.setProperty("webdriver.chrome.driver",rootFolder+"\\src\\test\\resources\\chromedriver.exe");
 	    driver = new ChromeDriver();	
 	}
 	
   @Test
-  public void f() throws FileNotFoundException, IOException, InterruptedException {
+  public void f() throws Exception {
+	  Login login = new Login(driver);
       driver.manage().window().maximize();
 
 	  Properties propObj=new Properties();
@@ -36,14 +39,11 @@ public class Scenario4 {
       driver.get(propObj.getProperty("LoginUrl"));
       Thread.sleep(1000);
       
-      driver.findElement(By.xpath("//input[@id=\"mobileNumberPass\"]")).sendKeys(propObj.getProperty("Email"));
-      driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys(propObj.getProperty("Pass"));
+      login.enterEmail(propObj.getProperty("Email"));
+      login.enterPassword(propObj.getProperty("Pass"));
       Thread.sleep(1000);
-      driver.findElement(By.xpath("//button[.=\"LOGIN\"]")).click();
-      Thread.sleep(35000);
-      driver.findElement(By.xpath("//button[.=\"LOGIN\"]")).click();
+      login.loginButton();
       Thread.sleep(5000);
-      driver.findElement(By.xpath("//a[.='Men']")).click();
       
       WebElement Bag = driver.findElement(By.xpath("//span[.=\"Bag\"]"));
       

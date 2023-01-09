@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-09T12:35:34Z" name="Default suite" finished-at="2023-01-09T12:36:32Z" duration-ms="58058">
+  <suite started-at="2023-01-09T13:22:33Z" name="Default suite" finished-at="2023-01-09T13:23:38Z" duration-ms="64128">
     <groups>
     </groups>
-    <test started-at="2023-01-09T12:35:34Z" name="Default test" finished-at="2023-01-09T12:36:32Z" duration-ms="58058">
+    <test started-at="2023-01-09T13:22:33Z" name="Default test" finished-at="2023-01-09T13:23:38Z" duration-ms="64128">
       <class name="com.app.tests.Scenario4">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.app.tests.Scenario4@600b9d27]" started-at="2023-01-09T18:05:34Z" name="setup" finished-at="2023-01-09T18:05:36Z" duration-ms="2156" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.app.tests.Scenario4@7393222f]" started-at="2023-01-09T18:52:33Z" name="setup" finished-at="2023-01-09T18:52:35Z" duration-ms="1705" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="f()[pri:0, instance:com.app.tests.Scenario4@600b9d27]" started-at="2023-01-09T18:05:36Z" name="f" finished-at="2023-01-09T18:06:31Z" duration-ms="55624" status="PASS">
+        <test-method signature="f()[pri:0, instance:com.app.tests.Scenario4@7393222f]" started-at="2023-01-09T18:52:35Z" name="f" finished-at="2023-01-09T18:53:37Z" duration-ms="62151" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.app.tests.Scenario4@600b9d27]" started-at="2023-01-09T18:06:31Z" name="tearDown" finished-at="2023-01-09T18:06:32Z" duration-ms="259" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.app.tests.Scenario4@7393222f]" started-at="2023-01-09T18:53:37Z" name="tearDown" finished-at="2023-01-09T18:53:38Z" duration-ms="259" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

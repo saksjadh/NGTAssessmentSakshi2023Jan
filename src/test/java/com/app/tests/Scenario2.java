@@ -14,8 +14,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.app.pages.Login;
+
+//import pageFactory.loginPage;
+
 public class Scenario2 {
 	WebDriver driver=null;
+	Login login = new Login(driver);
+	
 	@BeforeMethod(alwaysRun=true)
 	public void setup() {
 		String rootFolder = System.getProperty("user.dir");
@@ -24,23 +30,20 @@ public class Scenario2 {
 	}
 	
   @Test
-  public void login() throws FileNotFoundException, IOException, InterruptedException {
-
+  public void login() throws Exception {
+	  Login login = new Login(driver);
 	  Properties propObj=new Properties();
-	  String rootFolder = System.getProperty("user.dir");
+	  String rootFolder = System.getProperty("user.dir"); 
       propObj.load(new FileInputStream(rootFolder+ "//src//test//resources//login.properties"));
       driver.get(propObj.getProperty("LoginUrl"));
       Thread.sleep(1000);
-      driver.findElement(By.xpath("//input[@id=\"mobileNumberPass\"]")).sendKeys(propObj.getProperty("Email"));
-      driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys(propObj.getProperty("Pass"));
+      login.enterEmail(propObj.getProperty("Email"));
+      login.enterPassword(propObj.getProperty("Pass"));
       Thread.sleep(1000);
-      driver.findElement(By.xpath("//button[.=\"LOGIN\"]")).click();
-      Thread.sleep(31000);
-      driver.findElement(By.xpath("//button[.=\"LOGIN\"]")).click();
-      String expectedTitle="Myntra";
+      String expectedTitle="Online Shopping for Women, Men, Kids Fashion & Lifestyle - Myntra";
       String actualTitle = driver.getTitle();
 //      System.out.println(actualTitle);
-      
+    
       Assert.assertEquals(actualTitle, expectedTitle,"Home page not loaded");
       Thread.sleep(2000);
       WebElement prof = driver.findElement(By.xpath("//span[.=\"Profile\"]"));
@@ -49,7 +52,6 @@ public class Scenario2 {
     	  System.out.println("You are Successfully Logged in");
       }
 
-      
     
   }
   @AfterMethod(alwaysRun=true)
